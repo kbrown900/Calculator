@@ -2,7 +2,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-flow: column;
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
@@ -39,15 +38,20 @@ body {
     cursor: pointer;
   }
   
-  .equals {
-    grid-column: span 2;
+  .history {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-height: 100px;
+    overflow-y: auto;
   }
-
-  body.dark-mode {
-    background-color: #333;
-    color: #fff;
+  .theme-toggle {
+    margin-top: 10px;
+    text-align: center;
   }
   
-  .theme-toggle {
-    margin-bottom: 10px;
-  }  
+  .theme-toggle input {
+    margin-right: 5px;
+  }
+  
