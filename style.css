@@ -2,6 +2,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-flow: column;
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
@@ -41,4 +42,12 @@ body {
   .equals {
     grid-column: span 2;
   }
+
+  body.dark-mode {
+    background-color: #333;
+    color: #fff;
+  }
   
+  .theme-toggle {
+    margin-bottom: 10px;
+  }  

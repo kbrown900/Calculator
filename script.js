@@ -15,3 +15,12 @@ function calculate() {
     display.value = 'Error';
   }
 }
+function toggleTheme(theme) {
+    const body = document.body;
+  
+    if (theme === 'dark') {
+      body.classList.add('dark-mode');
+    } else {
+      body.classList.remove('dark-mode');
+    }
+  }

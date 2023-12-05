@@ -10,6 +10,10 @@
 </head>
 <body>
   <div class="calculator">
+    <div class="theme-toggle">
+        <input type="radio" id="lightMode" name="theme" checked onclick="toggleTheme('light')"> Light Mode
+        <input type="radio" id="darkMode" name="theme" onclick="toggleTheme('dark')"> Dark Mode
+      </div>
     <input type="text" id="display" readonly>
     <div class="buttons">
       <button onclick="clearDisplay()">C</button>
