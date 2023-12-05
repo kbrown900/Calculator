@@ -1,7 +1,7 @@
 //display the equation
-function dis(x)
+function dis(temp)
 {
-    document.getElementById("result").value += x
+    document.getElementById("result").value += temp
 }
 
 function solve(){
