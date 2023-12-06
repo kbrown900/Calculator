@@ -59,11 +59,23 @@ function handleKeyPress(event) {
 function calculate() {
   try {
     // Split the display value based on operators
-    const calculation = display.value.match(/(\d+\.?\d*|[+\-*\/])/g);
+    const calculation = display.value.match(/(\d+\.?\d*|[+\-*\/%])/g);
     console.log('Calculation Array:', calculation);
 
+    // Loop through the calculation array to handle percentages
+    for (let i = 1; i < calculation.length; i += 2) {
+      if (calculation[i] === '%') {
+        // Calculate the percentage and update the array
+        const numIndex = i - 1;
+        const num = parseFloat(calculation[numIndex]);
+        const percentage = num / 100;
+        calculation.splice(numIndex, 3, percentage.toString());
+        i -= 2; // Adjust the loop index for the removed elements
+      }
+    }
+
     // Perform the calculation using the selected operator
-    const operator = calculation.find(token => /[+\-*\/]/.test(token));
+    const operator = calculation.find(token => /[+\-*\/%]/.test(token));
     console.log('Operator:', operator);
 
     // Check if an operator is found
@@ -110,16 +122,14 @@ function calculate() {
 
 
 
+
+
 //adds to history array
 function addToHistory(expression, result) {
   // Store the full expression in the history array before updating the display
   history.push({ expression, result });
   updateHistoryDisplay();
 }
-
-
-
-
 
 //updates the history display with the history array
 function updateHistoryDisplay() {
