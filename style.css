@@ -6,13 +6,20 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
   }
-  
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+    /* Add any other dark mode styles here */
+  }
+
   .calculator {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 300px;
+    position: relative; /* Added for positioning the settings menu */
   }
   
   #display {
@@ -46,6 +53,23 @@ body {
     max-height: 100px;
     overflow-y: auto;
   }
+  
+  .settings-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    color: black;
+  }
+  
+  .settings-menu.visible {
+    display: block;
+  }
+  
   .theme-toggle {
     margin-top: 10px;
     text-align: center;
@@ -54,4 +78,3 @@ body {
   .theme-toggle input {
     margin-right: 5px;
   }
-  
