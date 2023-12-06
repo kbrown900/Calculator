@@ -1,3 +1,4 @@
+//Built with ChatGPT
 let display = document.getElementById('display');
 let historyDisplay = document.getElementById('history');
 let history = [];
