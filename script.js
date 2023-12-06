@@ -134,10 +134,6 @@ function calculate() {
   }
 }
 
-
-
-
-
 //adds to history array
 function addToHistory(expression, result) {
   // Store the full expression in the history array before updating the display
@@ -155,7 +151,6 @@ function updateHistoryDisplay() {
     historyDisplay.appendChild(historyItem);
   });
 }
-
 
 function clearHistory() {
   // Clear the history array
@@ -183,7 +178,6 @@ function showAbout() {
   alert(aboutMessage);
   // Optionally, you can create a modal or another UI element for a better presentation
 }
-
 
 //shows settings menu upper right
 function toggleSettings() {
