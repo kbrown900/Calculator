@@ -237,8 +237,9 @@ function showAbout() {
   // Display the modal with the about message
   const modal = document.getElementById('modal');
   const modalText = document.getElementById('modal-text');
-  modalText.innerHTML = aboutMessage; // Use innerHTML to interpret the <br> tags
+  modalText.innerHTML = aboutMessage + '<br><br><button onclick="closeModal()">Close</button>'; // Use innerHTML to interpret the <br> tags
   modal.style.display = 'block';
+  closeSettings();
 }
 
 // Function to close the modal
