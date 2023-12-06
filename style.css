@@ -80,11 +80,43 @@ body.dark-mode {
     margin-right: 5px;
   }
 
-.memory-empty {
+  .memory-empty {
     color: black;
   }
   
   .memory-filled {
     color: green; /* Choose a color for a filled memory */
+  }
+
+  /* Add this CSS for the modal */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: black;
   }
   

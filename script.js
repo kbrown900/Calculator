@@ -179,7 +179,7 @@ function toggleTheme(theme) {
 
 function showAbout() {
   // Create a simple alert with information about the app
-  const aboutMessage = "Simple Calculator App\n\nFeatures:\n- Basic arithmetic calculations\n- Memory functionality (M+, M-, MR, MC)\n- Percentage calculation\n- Dark and Light modes\n- History of calculations\n- Responsive design\n- Built by ChatGPT";
+  const aboutMessage = "Simple Calculator App - Built with ChatGPT\n\nFeatures:\n- Basic arithmetic calculations\n- Memory functionality (M+, M-, MR, MC)\n- Percentage calculation\n- Dark and Light modes\n- History of calculations\n- Responsive design";
   alert(aboutMessage);
   // Optionally, you can create a modal or another UI element for a better presentation
 }
@@ -235,5 +235,21 @@ function copyToClipboard() {
     // Fallback for browsers that do not support the Clipboard API
     alert('Clipboard API not supported. Please copy manually.');
   }
+}
+
+function showAbout() {
+  const aboutMessage = "Simple Calculator App - Built with ChatGPT<br><br>Features:<br>- Basic arithmetic calculations<br>- Memory functionality (M+, M-, MR, MC)<br>- Percentage calculation<br>- Dark and Light modes<br>- History of calculations<br>- Responsive design";
+
+  // Display the modal with the about message
+  const modal = document.getElementById('modal');
+  const modalText = document.getElementById('modal-text');
+  modalText.innerHTML = aboutMessage; // Use innerHTML to interpret the <br> tags
+  modal.style.display = 'block';
+}
+
+// Function to close the modal
+function closeModal() {
+  const modal = document.getElementById('modal');
+  modal.style.display = 'none';
 }
 
