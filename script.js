@@ -3,6 +3,7 @@ let display = document.getElementById('display');
 let historyDisplay = document.getElementById('history');
 let history = [];
 let settingsMenu = document.getElementById('settingsMenu');
+let memory = 0;
 
 //shows the values typed/clicked to the display
 function appendToDisplay(value) {
@@ -50,6 +51,18 @@ function handleKeyPress(event) {
       // Optionally, you can handle backspace to remove the last digit
       // Remove the next line if you don't want this behavior
       display.value = display.value.slice(0, -1);
+      break;
+    case 'm':
+      // Example: Press 'm' to toggle the settings menu
+       toggleSettings();
+      break;
+    case 'c':
+      // Example: Press 'c' to clear the display
+      clearDisplay();
+      break;
+    case 'p':
+      // Example: Press 'p' to calculate the percentage
+      calculate();
       break;
     default:
       // Handle other keys if needed
@@ -164,6 +177,14 @@ function toggleTheme(theme) {
   closeSettings();
 }
 
+function showAbout() {
+  // Create a simple alert with information about the app
+  const aboutMessage = "Simple Calculator App\n\nFeatures:\n- Basic arithmetic calculations\n- Memory functionality (M+, M-, MR, MC)\n- Percentage calculation\n- Dark and Light modes\n- History of calculations\n- Responsive design\n- Built by ChatGPT";
+  alert(aboutMessage);
+  // Optionally, you can create a modal or another UI element for a better presentation
+}
+
+
 //shows settings menu upper right
 function toggleSettings() {
   settingsMenu.classList.toggle('visible');
@@ -178,3 +199,41 @@ function backspace() {
   // Remove the last character from the display
   display.value = display.value.slice(0, -1);
 }
+
+function addToMemory() {
+  memory += parseFloat(display.value) || 0;
+  updateMemoryIndicator();
+}
+
+function subtractFromMemory() {
+  memory -= parseFloat(display.value) || 0;
+  updateMemoryIndicator();
+}
+
+function recallMemory() {
+  display.value = memory.toString();
+}
+
+function clearMemory() {
+  memory = 0;
+  updateMemoryIndicator();
+}
+
+function updateMemoryIndicator() {
+  // Add or remove the 'memory-filled' class based on the memory status
+  display.classList.toggle('memory-filled', memory !== 0);
+}
+
+function copyToClipboard() {
+  // Check if the browser supports the Clipboard API
+  if (navigator.clipboard) {
+    // Use the Clipboard API to copy the display value
+    navigator.clipboard.writeText(display.value)
+      .then(() => alert('Copied to clipboard'))
+      .catch(error => console.error('Copy to clipboard failed:', error));
+  } else {
+    // Fallback for browsers that do not support the Clipboard API
+    alert('Clipboard API not supported. Please copy manually.');
+  }
+}
+

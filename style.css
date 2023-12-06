@@ -59,7 +59,7 @@ body.dark-mode {
     display: none;
     position: absolute;
     top: 50px;
-    right: 10px;
+    right: auto;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -79,3 +79,12 @@ body.dark-mode {
   .theme-toggle input {
     margin-right: 5px;
   }
+
+.memory-empty {
+    color: black;
+  }
+  
+  .memory-filled {
+    color: green; /* Choose a color for a filled memory */
+  }
+  
