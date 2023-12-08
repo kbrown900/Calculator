@@ -11,7 +11,6 @@
   <div class="calculator">
     <button onclick="toggleSettings()">Settings</button>
     <input type="text" id="display" readonly class="memory-empty">
-
     <div class="buttons">
       <button onclick="appendToDisplay('7')">7</button>
       <button onclick="appendToDisplay('8')">8</button>
@@ -36,7 +35,11 @@
       <button onclick="addToMemory()">M+</button>
       <button onclick="subtractFromMemory()">M-</button>
       <button onclick="recallMemory()">MR</button>
-     <button onclick="clearMemory()">MC</button>
+      <button onclick="clearMemory()">MC</button>
+     <!-- Add these buttons for unit conversion -->
+      <button onclick="convertToFeet()">m to ft</button>
+      <button onclick="convertToMeters()">ft to m</button>
+
     </div>
     <div class="history" id="history"></div>
     <button onclick="clearHistory()">Clear History</button>
@@ -47,15 +50,26 @@
       <input type="radio" id="lightMode" name="theme" checked onchange="toggleTheme('light')"> Light Mode
       <input type="radio" id="darkMode" name="theme" onchange="toggleTheme('dark')"> Dark Mode
     </div>
+    <div class="settings-option">
+      <label for="decimal-places">Decimal Places:</label>
+      <select id="decimal-places" onchange="updateDecimalPlaces(this.value)">
+        <option value="0">0</option>
+        <option value="2">2</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+      </select>
+    </div>
     <button onclick="showAbout()">About</button>
     <button onclick="closeSettings()">Close</button>
   </div>
-  <script src="script.js"></script>
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <p id="modal-text"></p>
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>

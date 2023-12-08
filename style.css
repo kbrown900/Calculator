@@ -65,6 +65,7 @@ body.dark-mode {
     border-radius: 8px;
     padding: 10px;
     color: black;
+    text-align: center;
   }
   
   .settings-menu.visible {
@@ -119,4 +120,3 @@ body.dark-mode {
   .close:hover {
     color: black;
   }
-  

@@ -14,6 +14,12 @@ function clearDisplay() {
   display.value = '';
 }
 
+const multilineDisplay = document.getElementById('multiline-display');
+
+function appendToMultilineDisplay(value) {
+  multilineDisplay.value += value + '\n';
+}
+
 // Listen for keyboard events
 document.addEventListener('keydown', handleKeyPress);
 
@@ -128,6 +134,7 @@ function calculate() {
 
     // Update the display
     display.value = result;
+
   } catch (error) {
     console.error('Calculation error:', error.message);
     display.value = 'Error';
@@ -232,7 +239,7 @@ function copyToClipboard() {
 }
 
 function showAbout() {
-  const aboutMessage = "Simple Calculator App - Built with ChatGPT<br><br>Features:<br>- Basic arithmetic calculations<br>- Memory functionality (M+, M-, MR, MC)<br>- Percentage calculation<br>- Dark and Light modes<br>- History of calculations<br>- Responsive design";
+  const aboutMessage = "Simple Calculator App - Built with ChatGPT<br><br>Features:<br>- Basic arithmetic calculations<br>- Memory functionality (M+, M-, MR, MC)<br>- Percentage calculation<br>- Dark and Light modes<br>- History of calculations<br>- Responsive design<br>- Unit conversions for length (meters to feet and vice versa)<br>- Settings for adjusting decimal places in results";
 
   // Display the modal with the about message
   const modal = document.getElementById('modal');
@@ -248,3 +255,31 @@ function closeModal() {
   modal.style.display = 'none';
 }
 
+//converts value to feet
+function convertToFeet() {
+  const meters = parseFloat(display.value);
+  if (!isNaN(meters)) {
+    const feet = meters * 3.28084;
+    display.value = feet;
+    addToHistory(`${meters} meters to feet`, feet);
+  } else {
+    display.value = 'Invalid Input';
+  }
+}
+
+//converts value to meters
+function convertToMeters() {
+  const feet = parseFloat(display.value);
+  if (!isNaN(feet)) {
+    const meters = feet / 3.28084;
+    display.value = meters;
+    addToHistory(`${feet} feet to meters`, meters);
+  } else {
+    display.value = 'Invalid Input';
+  }
+}
+// Add this function for updating decimal places
+function updateDecimalPlaces(value) {
+  const result = parseFloat(display.value).toFixed(parseInt(value, 10));
+  display.value = result;
+}
